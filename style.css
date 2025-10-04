@@ -9,8 +9,105 @@
     --gray-700: #374151;
     --gray-800: #1f2937;
     --gray-900: #111827;
+
+    --step--1: clamp(0.8rem, 0.778rem + 0.0852vw, 0.844rem);
+    --step-0: clamp(1rem, 0.9373rem + 0.2421vw, 1.125rem);
+    --step-1: clamp(1.25rem, 1.1249rem + 0.4835vw, 1.4996rem);
+    --step-2: clamp(1.5625rem, 1.3437rem + 0.8455vw, 1.999rem);
+    --step-3: clamp(1.9531rem, 1.5965rem + 1.3783vw, 2.6647rem);
+    --step-4: clamp(2.4414rem, 1.8848rem + 2.1513vw, 3.552rem);
+    --step-5: clamp(3.0518rem, 2.2082rem + 3.2602vw, 4.7348rem);
 }
 
 body {
     font-family: system-ui, sans-serif;
+    background-color: var(--gray-50);
+    color: var(--gray-900);
+    padding: 2em;
+    font-size: var(--step-0);
+    line-height: 1.6;
+}
+
+article {
+    max-width: 70ch;
+    margin: auto;
+
+    >* {
+        grid-column: 3;
+    }
+
+    >*+* {
+        margin-block-start: var(--flow-space, 0.8em);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-weight: 600;
+        line-height: 1.1;
+    }
+
+    :is(h1, h2, h3, h4)+* {
+        --flow-space: 0.5em;
+    }
+
+    h1 {
+        font-size: var(--step-5);
+
+    }
+
+    h2 {
+        font-size: var(--step-4);
+        color: var(--gray-800);
+    }
+
+    h3 {
+        font-size: var(--step-3);
+        color: var(--gray-700);
+    }
+
+    h4 {
+        font-size: var(--step-2);
+        color: var(--gray-800);
+    }
+
+    figcaption {
+        font-size: var(--step--1);
+        color: var(--gray-600);
+    }
+
+    figure {
+        grid-column: 2 / 5;
+    }
+
+    p:first-of-type {
+        --flow-space: 1em;
+    }
+
+    a {
+        color: currentColor;
+        text-decoration: underline;
+        text-decoration-color: var(--gray-600);
+        text-underline-offset: 0.3ex;
+        text-decoration-thickness: 0.2ex;
+        font-weight: 500;
+    }
+
+    a:hover {
+        text-decoration-color: var(--gray-900);
+    }
+
+    p {
+        text-wrap: balance;
+    }
+
+    code {
+        font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+        background-color: var(--gray-300);
+        padding: 0.1em 0.3em;
+        border-radius: 0.3em;
+        font-size: 0.9em;
+    }
+
 }
